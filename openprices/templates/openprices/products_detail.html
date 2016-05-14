@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'openprices_products_list' %}">products Listing</a></p>
+<table class="table">
+<tr><td>name_on_ticket</td><td>{{ object.name_on_ticket }}</td></tr>
+<tr><td>price</td><td>{{ object.price }}</td></tr>
+<tr><td>ean13</td><td>{{ object.ean13 }}</td></tr>
+<tr><td>last_updated</td><td>{{ object.last_updated }}</td></tr>
+<tr><td>reduction</td><td>{{ object.reduction }}</td></tr>
+<tr><td>store</td><td>{{ object.store }}</td></tr>
+<tr><td>quantity</td><td>{{ object.quantity }}</td></tr>
+<tr><td>currency</td><td>{{ object.currency }}</td></tr>
+</table>
+<a class="btn btn-primary" href="{{object.get_update_url}}">Edit products</a>
+
+{% endblock %}

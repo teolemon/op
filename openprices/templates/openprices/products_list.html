@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<p><a class="btn btn-default" href="{% url 'openprices_products_list' %}">products Listing</a></p>
+<table class="table">
+<tr>
+<td>ID</td><td>Link</td>
+    <td>name_on_ticket</td>
+    <td>price</td>
+    <td>ean13</td>
+    <td>last_updated</td>
+    <td>reduction</td>
+    <td>store</td>
+    <td>quantity</td>
+    <td>currency</td>
+</tr>
+{% for object in object_list %}
+<tr>
+    <td>{{object.id}}</td>
+    <td><a href="{{object.get_absolute_url}}">{{object}}</a></td>
+    <td>{{ object.name_on_ticket }}</td>
+    <td>{{ object.price }}</td>
+    <td>{{ object.ean13 }}</td>
+    <td>{{ object.last_updated }}</td>
+    <td>{{ object.reduction }}</td>
+    <td>{{ object.store }}</td>
+    <td>{{ object.quantity }}</td>
+    <td>{{ object.currency }}</td>
+</tr>
+{% endfor %}
+</table><a class="btn btn-primary" href="{% url 'openprices_products_create' %}">Create new products</a>
+{% endblock %}
